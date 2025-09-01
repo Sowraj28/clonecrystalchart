@@ -1,0 +1,156 @@
+***********************************************************BACKEND****************************************************************
+PS C:\Users\HXT\Desktop\Stock Prediction Protal> mkdir backend-drf
+
+
+    Directory: C:\Users\HXT\Desktop\Stock Prediction Protal
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/1/2025   8:53 PM                backend-drf
+
+
+PS C:\Users\HXT\Desktop\Stock Prediction Protal> mkdir frontend-react
+
+
+    Directory: C:\Users\HXT\Desktop\Stock Prediction Protal
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/1/2025   8:54 PM                frontend-react
+
+
+PS C:\Users\HXT\Desktop\Stock Prediction Protal> .\env\Scripts\activate
+>>
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal> cd backend-drf
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> pip install django
+Collecting django
+  Downloading django-5.2.5-py3-none-any.whl.metadata (4.1 kB)
+Collecting asgiref>=3.8.1 (from django)
+  Using cached asgiref-3.9.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting sqlparse>=0.3.1 (from django)
+  Using cached sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+Collecting tzdata (from django)
+  Using cached tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Downloading django-5.2.5-py3-none-any.whl (8.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.3/8.3 MB 931.2 kB/s eta 0:00:00
+Using cached asgiref-3.9.1-py3-none-any.whl (23 kB)
+Using cached sqlparse-0.5.3-py3-none-any.whl (44 kB)
+Using cached tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: tzdata, sqlparse, asgiref, django
+Successfully installed asgiref-3.9.1 django-5.2.5 sqlparse-0.5.3 tzdata-2025.2
+
+[notice] A new release of pip is available: 24.3.1 -> 25.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> pip freeze
+asgiref==3.9.1
+Django==5.2.5
+sqlparse==0.5.3
+tzdata==2025.2
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> python.exe -m pip install --upgrade pip
+Requirement already satisfied: pip in c:\users\hxt\desktop\stock prediction protal\env\lib\site-packages (24.3.1)
+Collecting pip
+  Downloading pip-25.2-py3-none-any.whl.metadata (4.7 kB)
+Downloading pip-25.2-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 231.6 kB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.3.1
+    Uninstalling pip-24.3.1:
+      Successfully uninstalled pip-24.3.1
+Successfully installed pip-25.2
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> django-admin startproject stock_prediction_main .
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttySeptember 01, 2025 - 21:01:26
+Django version 5.2.5, using settings 'stock_prediction_main.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/5.2/howto/deployment/
+[01/Sep/2025 21:01:27] "GET / HTTP/1.1" 200 12068
+Not Found: /favicon.ico
+[01/Sep/2025 21:01:28] "GET /favicon.ico HTTP/1.1" 404 2223
+
+
+
+
+
+**********************************************************FRONTEND***************************************************************
+PS C:\Users\HXT\Desktop\Stock Prediction Protal> cd frontend-react
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  stock-prediction-portal
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Scaffolding project in C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react\stock-prediction-portal...
+│
+└  Done. Now run:
+
+  cd stock-prediction-portal
+  npm install
+  npm run dev
+
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> ^C
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> npm install
+
+added 152 packages, and audited 153 packages in 3m
+
+33 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> 
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> 
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> npm run dev
+
+> stock-prediction-portal@0.0.0 dev
+> vite
+
+
+  VITE v7.1.4  ready in 362 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+
+CONNECTIND GITHUB
+Crreate an file inside drf backend called .envAnd settings do this a copy this from python decouple \ and install python decouple inside backend-drf
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> pip install python-decouple
+Collecting python-decouple
+  Downloading python_decouple-3.8-py3-none-any.whl.metadata (14 kB)
+Downloading python_decouple-3.8-py3-none-any.whl (9.9 kB)
+Installing collected packages: python-decouple
+Successfully installed python-decouple-3.8
+(env) PS C:\Users\HXT\Desktop\Stock Prediction Protal\backend-drf> 
+
+from decouple import config
+https://pypi.org/project/python-decouple/
+THEN GO THE THIS WENSITE TO GENERATE A SECRET KEY
+
+
+https://djecrety.ir/
+in .env file and make si
+SECRET_KEY=^kc8(gw&7gndl61_cg7%jp0=sga@s&ep33%nskdbks-wlk^0v$
+DEBUG=True
+
+
+#CREATE .gitignore file and put the code that generated from 
+https://www.toptal.com/developers/gitignore 
