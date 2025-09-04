@@ -154,3 +154,46 @@ DEBUG=True
 
 #CREATE .gitignore file and put the code that generated from 
 https://www.toptal.com/developers/gitignore 
+
+
+
+
+**GIT ADDING AND PUSING
+##PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+        modified:   src/App.jsx
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        src/assets/
+        src/components/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+##PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> git add .
+warning: in the working copy of 'frontend-react/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend-react/src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+##PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> git commit -m"homepage react"
+[main ef5b20d] homepage react
+ 7 files changed, 142 insertions(+), 2 deletions(-)
+ create mode 100644 frontend-react/src/assets/css/style.css
+ create mode 100644 frontend-react/src/components/Button.jsx
+ create mode 100644 frontend-react/src/components/Footer.jsx
+ create mode 100644 frontend-react/src/components/Header.jsx
+ create mode 100644 frontend-react/src/components/Main.jsx
+##PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> git push origin main
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (14/14), 2.93 KiB | 428.00 KiB/s, done.
+Total 14 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/Sowraj28/stock-predication-portal.git
+   c379f82..ef5b20d  main -> main
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> 
