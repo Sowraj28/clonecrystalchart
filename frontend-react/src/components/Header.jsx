@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button"; // ✅ Import reusable Button
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,9 +14,9 @@ const Header = () => {
           }}
         >
           {/* Brand / Title */}
-          <a href="/" className="navbar-brand fs-3 fw-bold text-dark">
+          <Link to="/" className="navbar-brand fs-3 fw-bold text-dark">
             Crystal Chart
-          </a>
+          </Link>
 
           {/* Toggler button (hamburger) */}
           <button
@@ -37,10 +38,10 @@ const Header = () => {
           >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item me-2">
-                <Button className="btn-outline-dark" text="Login" />
+                <Button className="btn-outline-dark" text="Login" url="/login" />
               </li>
               <li className="nav-item">
-                <Button className="btn-outline-dark" text="Register" />
+                <Button className="btn-outline-dark" text="Sign Up" url="/register" />
               </li>
             </ul>
           </div>

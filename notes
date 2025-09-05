@@ -197,3 +197,31 @@ remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
 To https://github.com/Sowraj28/stock-predication-portal.git
    c379f82..ef5b20d  main -> main
 PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> 
+
+## to create route have install npn react-router-dom
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> npm i react-router-dom
+
+added 4 packages, and audited 157 packages in 17s
+
+33 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> ^C
+PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react> 
+
+
+
+##OPEN THE TERMINA;L FOR FRONTEND NSTALL THIS AXIONS TO HANDLE API CALL
+npm i axios
+ And use asyn and await to protect api call success message
+
+ AND INSTALL CORS IN BACKEND TO ALLOW api CALL FROM DIFFERENT PORT
+ pip install django-cors-headers --From django website
+
+
+## for adding font awesome icons install it from React font awesome docs
+
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
