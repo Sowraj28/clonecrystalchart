@@ -212,7 +212,9 @@ PS C:\Users\HXT\Desktop\Stock Prediction Protal\frontend-react>
 
 
 
-##OPEN THE TERMINA;L FOR FRONTEND NSTALL THIS AXIONS TO HANDLE API CALL
+##OPEN THE TERMINA;L FOR FRONTEND NSTALL THIS AXIONS TO HANDLE API CALL docs
+https://www.npmjs.com/package/axios
+
 npm i axios
  And use asyn and await to protect api call success message
 
@@ -221,7 +223,18 @@ npm i axios
 
 
 ## for adding font awesome icons install it from React font awesome docs
+https://docs.fontawesome.com/v5/web/use-with/react
 
 npm i --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
+
+#3FOR LOGIN FUNCTION USE OF DJANGO JWT FUNCATIONALITY go to docs
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html
+
+pip install djangorestframework-simplejwt  
+
+
+###SUPER USER 
+NAME=Sowraj
+PASSWORD=TN37BW1144
