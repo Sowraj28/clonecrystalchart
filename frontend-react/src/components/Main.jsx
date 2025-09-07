@@ -18,18 +18,11 @@ const Main = () => {
 
         <div className="mt-4">
           {isLoggedIn ? (
-            <Button
-              className="btn-outline-dark"
-              text="Explore More"
-              url="/dashboard"
-            />
-          ) : (
-            <Button
-              className="btn-outline-dark"
-              text="Explore Now"
-              url="/login"
-            />
-          )}
+  <Button className="btn-outline-dark " text="Explore More" url="/dashboard" />
+) : (
+  <Button className="btn-outline-dark" text="Explore Now" url="/login" />
+)}
+
         </div>
       </div>
     </div>

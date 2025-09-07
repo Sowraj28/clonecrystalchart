@@ -24,4 +24,25 @@ body{
   xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.9)' 
   stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' 
   d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}/**/
+
+
+.btn-outline-dark:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.37); 
+  outline-offset: 2px;
 }
+
+/* Remove sticky focus outline */
+.btn-outline-dark:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.7); /* show the outline only while focused */
+  outline-offset: 2px;
+  box-shadow: none !important; /* remove Bootstrap shadow */
+}
+
+/* Remove outline after click (when mouse is released) */
+.btn-outline-dark:active {
+  outline: none;
+  box-shadow: none !important;
+}
+
+

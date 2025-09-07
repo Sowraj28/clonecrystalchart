@@ -1,13 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Button = (props) => {
+const Button = ({ text, url, className }) => {
+  const navigate = useNavigate();
+
   return (
-    <Link className={`btn ${props.className}`} to={props.url}>
-      {props.text}
-    </Link>
+    <button
+      type="button"
+      className={`btn ${className}`}
+      onClick={(e) => {
+        e.currentTarget.blur(); // remove focus immediately to prevent outline
+        navigate(url);
+      }}
+    >
+      {text}
+    </button>
   );
 };
-
 
 export default Button;

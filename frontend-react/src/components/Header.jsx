@@ -37,33 +37,23 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarMenu"
-        >
+        <div className="collapse navbar-collapse justify-content-end" id="navbarMenu">
           <ul className="navbar-nav ms-auto">
             {isLoggedIn ? (
               <>
                 {/* if we're on dashboard → show HOME, otherwise show DASHBOARD */}
                 {location.pathname === "/dashboard" ? (
                   <li className="nav-item me-2">
-                    <Button className="btn-outline-dark" text="Home" url="/" />
+                    <Button className="btn-outline-dark " text="Home" url="/" />
                   </li>
                 ) : (
                   <li className="nav-item me-2">
-                    <Button
-                      className="btn-outline-dark"
-                      text="Dashboard"
-                      url="/dashboard"
-                    />
+                    <Button className="btn-outline-dark" text="Dashboard" url="/dashboard" />
                   </li>
                 )}
 
                 <li className="nav-item">
-                  <button
-                    className="btn btn-outline-dark"
-                    onClick={handleLogout}
-                  >
+                  <button className="btn btn-outline-dark" onClick={handleLogout}>
                     Logout
                   </button>
                 </li>
@@ -71,18 +61,10 @@ const Header = () => {
             ) : (
               <>
                 <li className="nav-item me-2">
-                  <Button
-                    className="btn-outline-dark"
-                    text="Login"
-                    url="/login"
-                  />
+                  <Button className="btn-outline-dark" text="Login" url="/login" />
                 </li>
                 <li className="nav-item">
-                  <Button
-                    className="btn-outline-dark"
-                    text="Sign Up"
-                    url="/register"
-                  />
+                  <Button className="btn-outline-dark" text="Sign Up" url="/register" />
                 </li>
               </>
             )}
