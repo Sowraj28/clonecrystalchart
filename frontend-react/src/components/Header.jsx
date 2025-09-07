@@ -1,59 +1,55 @@
 import React, { useContext } from "react";
-import Button from "./Button";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-
+import Button from "./Button";
 
 const Header = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // simple logout handler (just clear state/localStorage etc.)
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    navigate("/login");
-    console.log("Logged out successfully");
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   return (
-    <>
-      <header className="sticky-top" style={{ width: "100%", height: "70px" }}>
-        <nav
-          className="navbar navbar-expand-md navbar-light"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(150, 120, 250, 1) 0%, rgb(211, 167, 249) 50%, rgba(150,120,250,1) 100%)",
-          }}
+    <header className="sticky-top" style={{ width: "100%", height: "70px" }}>
+      <nav
+        className="navbar navbar-expand-md navbar-light"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(150, 120, 250, 1) 0%, rgb(211, 167, 249) 50%, rgba(150,120,250,1) 100%)",
+        }}
+      >
+        <Link to="/" className="navbar-brand fs-3 fw-bold text-dark">
+          Crystal Chart
+        </Link>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu"
         >
-          {/* Brand */}
-          <Link to="/" className="navbar-brand fs-3 fw-bold text-dark">
-            Crystal Chart
-          </Link>
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-          {/* Toggler button */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarMenu"
-            aria-controls="navbarMenu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          {/* Menu */}
-          <div
-            className="collapse navbar-collapse justify-content-end"
-            id="navbarMenu"
-          >
-            <ul className="navbar-nav ms-auto">
-              {isLoggedIn ? (
-                // If logged in show Dashboard + Logout
-                <>
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarMenu"
+        >
+          <ul className="navbar-nav ms-auto">
+            {isLoggedIn ? (
+              <>
+                {/* if we're on dashboard → show HOME, otherwise show DASHBOARD */}
+                {location.pathname === "/dashboard" ? (
+                  <li className="nav-item me-2">
+                    <Button className="btn-outline-dark" text="Home" url="/" />
+                  </li>
+                ) : (
                   <li className="nav-item me-2">
                     <Button
                       className="btn-outline-dark"
@@ -61,39 +57,39 @@ const Header = () => {
                       url="/dashboard"
                     />
                   </li>
-                  <li className="nav-item">
-                    <button
-                      className="btn btn-outline-dark"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </button>
-                  </li>
-                </>
-              ) : (
-                // If NOT logged in show Login + Sign Up
-                <>
-                  <li className="nav-item me-2">
-                    <Button
-                      className="btn-outline-dark"
-                      text="Login"
-                      url="/login"
-                    />
-                  </li>
-                  <li className="nav-item">
-                    <Button
-                      className="btn-outline-dark"
-                      text="Sign Up"
-                      url="/register"
-                    />
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
-        </nav>
-      </header>
-    </>
+                )}
+
+                <li className="nav-item">
+                  <button
+                    className="btn btn-outline-dark"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item me-2">
+                  <Button
+                    className="btn-outline-dark"
+                    text="Login"
+                    url="/login"
+                  />
+                </li>
+                <li className="nav-item">
+                  <Button
+                    className="btn-outline-dark"
+                    text="Sign Up"
+                    url="/register"
+                  />
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 };
 

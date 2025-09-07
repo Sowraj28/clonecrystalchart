@@ -1,26 +1,38 @@
-import React from "react";
-import Button from "./Button"; // ✅ Import with capital B
+import { useContext } from "react";
+import Button from "./Button";
+import { AuthContext } from "./AuthProvider";
 
 const Main = () => {
-  return (
-    <>
-      
-      <div className="container d-flex justify-content-center align-items-center vh-100 mb-5">
-        <div className="p-5 border align-items-center rounded-3 text-center text-dark bg-light-dark">
-          <h2 className="text-dark">Crystal Chart</h2>
-          <h3 className="lead">
-            Welcome to the Crystal Chart application. This platform provides
-            insightful data visualizations and predictions to help you make
-            informed decisions in the stock market.
-          </h3>
+  const { isLoggedIn } = useContext(AuthContext);
 
-          {/* ✅ Use custom Button component */}
-          <Button className="btn-outline-dark" text="Login" url="/login" />
+  return (
+    <div className="container d-flex  justify-content-center align-items-center vh-100 mb-5">
+      <div className="p-5 border bg-light-dark rounded-3 text-center text-dark bg-light">
+        <h1 className="fw-bold text-dark">Crystal Chart</h1>
+        <p className="lead mt-3">
+          Track the pulse of the cryptocurrency market. Crystal Chart delivers{" "}
+          <strong>real-time prices</strong>,
+          <strong>7-day / 30-day history charts</strong> and
+          <strong>AI-powered predictions</strong> for the world’s top coins.
+        </p>
+
+        <div className="mt-4">
+          {isLoggedIn ? (
+            <Button
+              className="btn-outline-dark"
+              text="Explore More"
+              url="/dashboard"
+            />
+          ) : (
+            <Button
+              className="btn-outline-dark"
+              text="Explore Now"
+              url="/login"
+            />
+          )}
         </div>
       </div>
-
-      
-    </>
+    </div>
   );
 };
 

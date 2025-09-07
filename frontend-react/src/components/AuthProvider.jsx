@@ -1,12 +1,15 @@
-import { useState,useContext, createContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-const AuthContext = createContext(); // creates a context object
+export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  // check localStorage to keep login status on refresh
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    !!localStorage.getItem("accessToken")
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // 🔹 Check localStorage when the app mounts
+  useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+    if (token) setIsLoggedIn(true);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
@@ -16,4 +19,3 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
-export { AuthContext };

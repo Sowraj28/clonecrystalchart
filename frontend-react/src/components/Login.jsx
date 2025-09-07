@@ -1,7 +1,7 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios'
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
@@ -10,33 +10,35 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [error,setError]=useState('')
-  const {isLoggedIn,setIsLoggedIn}=useContext(AuthContext)
-
+  const [error, setError] = useState("");
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     const userData = {
       username,
-      password
-    }
-    console.log("userData==>",userData);
+      password,
+    };
+    console.log("userData==>", userData);
 
-    try{
-      const response=await axios.post('http://127.0.0.1:8000/api/v1/token/',userData)
-      localStorage.setItem('accessToken',response.data.access)
-      localStorage.setItem('refreshToken',response.data.refresh)
-      console.log('LogIn Successful');
-      setIsLoggedIn(true)
-      navigate('/')
-    }catch(error){
-      console.error('Invalid credentials')
-      setError('Invalid credentials')
-    }finally{
-      setLoading(false)
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/v1/token/",
+        userData
+      );
+      localStorage.setItem("accessToken", response.data.access);
+      localStorage.setItem("refreshToken", response.data.refresh);
+      console.log("LogIn Successful");
+      setIsLoggedIn(true);
+      navigate("/dashboard", { replace: true });
+    } catch (error) {
+      console.error("Invalid credentials");
+      setError("Invalid credentials");
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <>
@@ -71,7 +73,9 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              {error && <div style={{ color: "rgba(248, 0, 0, 1)" }}>{error}</div>}
+              {error && (
+                <div style={{ color: "rgba(248, 0, 0, 1)" }}>{error}</div>
+              )}
 
               {loading ? (
                 <button
