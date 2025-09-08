@@ -4,6 +4,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -55,11 +56,18 @@ const Login = () => {
               <div className="mb-3">
                 <input
                   type="text"
-                  className="form-control text-light bg-dark"
+                  className="form-control text-light bg-dark "
                   placeholder="Username"
                   required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  style={{
+                    justifyContent:'center',
+                    fontSize: "14px",
+                    padding: "6px 10px",
+                    height: "36px",
+                    
+                  }}
                 />
               </div>
 
@@ -67,10 +75,15 @@ const Login = () => {
                 <input
                   type="password"
                   className="form-control text-light bg-dark"
-                  placeholder=" Password"
+                  placeholder="Password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  style={{
+                    fontSize: "14px",
+                    padding: "6px 10px",
+                    height: "36px",
+                  }}
                 />
               </div>
               {error && (
@@ -81,7 +94,7 @@ const Login = () => {
                 <button
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto"
-                  style={{ backgroundColor: "rgba(150, 120, 250, 1)" }}
+                  style={{ backgroundColor: "rgba(148, 234, 252, 1)" }}
                   disabled
                 >
                   <FontAwesomeIcon icon={faSpinner} spin /> Logging In...
@@ -90,11 +103,23 @@ const Login = () => {
                 <button
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto"
-                  style={{ backgroundColor: "rgba(150, 120, 250, 1)" }}
+                  style={{ backgroundColor: "rgba(148, 234, 252, 1)" }}
                 >
                   Login
                 </button>
               )}
+              {/* Sign Up link */}
+              <div className="text-center mt-3">
+                <span style={{ color: "#fff" }}>
+                  Don't have an account?{" "}
+                  <Link
+                    to="/register"
+                    style={{ color: "#0e0e14ff", textDecoration: "none" }}
+                  >
+                    Sign Up
+                  </Link>
+                </span>
+              </div>
             </form>
           </div>
         </div>

@@ -1,3 +1,4 @@
+// Header.jsx
 import React, { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
@@ -9,10 +10,16 @@ const Header = () => {
   const location = useLocation();
 
   const handleLogout = () => {
+    // clear tokens + context
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     setIsLoggedIn(false);
-    navigate("/");
+
+    // only navigate if we're not already on "/"
+    if (location.pathname !== "/") {
+      // replace:true prevents an extra history entry → back arrow won’t return to /login
+      navigate("/", { replace: true });
+    }
   };
 
   return (
@@ -21,7 +28,7 @@ const Header = () => {
         className="navbar navbar-expand-md navbar-light"
         style={{
           background:
-            "linear-gradient(90deg, rgba(150, 120, 250, 1) 0%, rgb(211, 167, 249) 50%, rgba(150,120,250,1) 100%)",
+            "linear-gradient(90deg, rgb(125, 238, 244) 0%, rgb(78, 209, 238) 50%, rgba(150,120,250,1) 100%)",
         }}
       >
         <Link to="/" className="navbar-brand fs-3 fw-bold text-dark">
@@ -37,23 +44,33 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse justify-content-end" id="navbarMenu">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarMenu"
+        >
           <ul className="navbar-nav ms-auto">
             {isLoggedIn ? (
               <>
                 {/* if we're on dashboard → show HOME, otherwise show DASHBOARD */}
                 {location.pathname === "/dashboard" ? (
                   <li className="nav-item me-2">
-                    <Button className="btn-outline-dark " text="Home" url="/" />
+                    <Button className="btn-outline-dark" text="Home" url="/" />
                   </li>
                 ) : (
                   <li className="nav-item me-2">
-                    <Button className="btn-outline-dark" text="Dashboard" url="/dashboard" />
+                    <Button
+                      className="btn-outline-dark"
+                      text="Dashboard"
+                      url="/dashboard"
+                    />
                   </li>
                 )}
 
                 <li className="nav-item">
-                  <button className="btn btn-outline-dark" onClick={handleLogout}>
+                  <button
+                    className="btn btn-outline-dark"
+                    onClick={handleLogout}
+                  >
                     Logout
                   </button>
                 </li>
@@ -61,10 +78,18 @@ const Header = () => {
             ) : (
               <>
                 <li className="nav-item me-2">
-                  <Button className="btn-outline-dark" text="Login" url="/login" />
+                  <Button
+                    className="btn-outline-dark"
+                    text="Login"
+                    url="/login"
+                  />
                 </li>
                 <li className="nav-item">
-                  <Button className="btn-outline-dark" text="Sign Up" url="/register" />
+                  <Button
+                    className="btn-outline-dark"
+                    text="Sign Up"
+                    url="/register"
+                  />
                 </li>
               </>
             )}

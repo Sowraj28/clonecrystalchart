@@ -1,18 +1,23 @@
-body{
-    background-color:rgb(45, 44, 44);
+body {
+  background-color:  #cafefc;
 }
 
 .bg-light-dark {
-    background: linear-gradient(90deg, rgba(150, 120, 250, 1) 0%, rgb(211, 167, 249) 50%, rgba(150,120,250,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgb(125, 238, 244) 0%,
+    rgb(78, 209, 238) 50%,
+    rgba(150,120,250,1) 100%
+  );
 }
 
-#root{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.container{
-    flex: 1;
+.container {
+  flex: 1;
 }
 
 .navbar-toggler {
@@ -24,11 +29,10 @@ body{
   xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.9)' 
   stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' 
   d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}/**/
-
+} /**/
 
 .btn-outline-dark:hover {
-  outline: 2px solid rgba(0, 0, 0, 0.37); 
+  outline: 2px solid rgba(0, 0, 0, 0.37);
   outline-offset: 2px;
 }
 
@@ -45,4 +49,8 @@ body{
   box-shadow: none !important;
 }
 
-
+.small-input {
+  font-size: 14px;
+  padding: 6px 10px;
+  height: 36px;
+}

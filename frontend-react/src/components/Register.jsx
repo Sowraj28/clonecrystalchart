@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [username,setUsername]=useState('');
@@ -106,23 +107,35 @@ const Register = () => {
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto "
                   style={{
-                    backgroundColor: " rgba(150, 120, 250, 1)",
+                    backgroundColor: " rgba(148, 234, 252, 1)",
                   }}
-                 disabled >
+                  disabled
+                >
                   <FontAwesomeIcon icon={faSpinner} spin />
-                   Please Wait...
+                  Please Wait...
                 </button>
               ) : (
                 <button
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto "
                   style={{
-                    backgroundColor: " rgba(150, 120, 250, 1)",
+                    backgroundColor: " rgba(148, 234, 252, 1) ",
                   }}
                 >
                   Sign Up
                 </button>
               )}
+              <div className="text-center mt-3">
+                <span style={{ color: "#fff" }}>
+                  Do you have an account?{" "}
+                  <Link
+                    to="/login"
+                    style={{ color: "#0e0e14ff", textDecoration: "none" }}
+                  >
+                    Login
+                  </Link>
+                </span>
+              </div>
             </form>
           </div>
         </div>
