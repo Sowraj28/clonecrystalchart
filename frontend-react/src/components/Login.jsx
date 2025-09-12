@@ -30,6 +30,7 @@ const Login = () => {
       );
       localStorage.setItem("accessToken", response.data.access);
       localStorage.setItem("refreshToken", response.data.refresh);
+      localStorage.setItem("username", username);
       console.log("LogIn Successful");
       setIsLoggedIn(true);
       navigate("/dashboard", { replace: true });

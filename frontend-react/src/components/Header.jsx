@@ -1,26 +1,28 @@
-// Header.jsx
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import Button from "./Button";
+import ChatBot from "./dashboard/ChatBot"; // import ChatBot component
 
 const Header = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const [showChat, setShowChat] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleLogout = () => {
-    // clear tokens + context
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     setIsLoggedIn(false);
 
-    // only navigate if we're not already on "/"
     if (location.pathname !== "/") {
-      // replace:true prevents an extra history entry → back arrow won’t return to /login
       navigate("/", { replace: true });
     }
   };
+
+  // Show chat button only if not on login/register page
+  const showChatBtn =
+    location.pathname !== "/login" && location.pathname !== "/register";
 
   return (
     <header className="sticky-top" style={{ width: "100%", height: "70px" }}>
@@ -51,7 +53,16 @@ const Header = () => {
           <ul className="navbar-nav ms-auto">
             {isLoggedIn ? (
               <>
-                {/* if we're on dashboard → show HOME, otherwise show DASHBOARD */}
+                {showChatBtn && (
+                  <li className="nav-item me-2">
+                    <button
+                      className="btn btn-outline-dark"
+                      onClick={() => setShowChat((prev) => !prev)}
+                    >
+                      💬 Chat
+                    </button>
+                  </li>
+                )}
                 {location.pathname === "/dashboard" ? (
                   <li className="nav-item me-2">
                     <Button className="btn-outline-dark" text="Home" url="/" />
@@ -84,6 +95,18 @@ const Header = () => {
                     url="/login"
                   />
                 </li>
+
+                {showChatBtn && (
+                  <li className="nav-item me-2">
+                    <button
+                      className="btn btn-outline-dark"
+                      onClick={() => setShowChat((prev) => !prev)}
+                    >
+                      💬 Chat
+                    </button>
+                  </li>
+                )}
+
                 <li className="nav-item">
                   <Button
                     className="btn-outline-dark"
@@ -96,6 +119,11 @@ const Header = () => {
           </ul>
         </div>
       </nav>
+
+      {/* ChatBot component with close functionality */}
+      {showChat && (
+        <ChatBot from={location.pathname} onClose={() => setShowChat(false)} />
+      )}
     </header>
   );
 };

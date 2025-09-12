@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import './assets/css/style.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Main from './components/Main'
-import Register from './components/Register'
-import {BrowserRouter ,Routes,Route} from 'react-router-dom'
-import Login from "./components/Login"
-import AuthProvider from './components/AuthProvider'
-import Dashboard from './components/dashboard/Dashboard'
-import PrivateRoute from './PrivateRoute'
-import PublicRoute from './PublicRoute'
-
-
+import { useState } from "react";
+import "./assets/css/style.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Main from "./components/Main";
+import Register from "./components/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import AuthProvider from "./components/AuthProvider";
+import Dashboard from "./components/dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
+import CoinPage from "./components/dashboard/CoinPage";
+import ChatBot from "./components/dashboard/ChatBot"; // ✅ import ChatBot
+import Favorites from "./components/dashboard/Favorites";
 
 function App() {
-  
-
   return (
     <>
       <AuthProvider>
@@ -23,6 +22,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Main />} />
+
             <Route
               path="/register"
               element={
@@ -39,11 +39,25 @@ function App() {
                 </PublicRoute>
               }
             />
+
             <Route
               path="/dashboard"
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+
+            <Route path="/coin/:id" element={<CoinPage />} />
+            <Route path="/favorites" element={<Favorites />} />
+
+            {/* ✅ ChatBot Route */}
+            <Route
+              path="/chat"
+              element={
+                <PrivateRoute>
+                  <ChatBot />
                 </PrivateRoute>
               }
             />
@@ -55,4 +69,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

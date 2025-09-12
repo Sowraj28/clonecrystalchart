@@ -1,5 +1,6 @@
+/* Header base styles (your existing CSS unchanged) */
 body {
-  background-color:  #cafefc;
+  background-color:  #f5f0f0;
 }
 
 .bg-light-dark {
@@ -21,7 +22,7 @@ body {
 }
 
 .navbar-toggler {
-  border: none; /* optional: remove border */
+  border: none;
 }
 
 .navbar-toggler-icon {
@@ -29,21 +30,19 @@ body {
   xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.9)' 
   stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' 
   d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-} /**/
+}
 
 .btn-outline-dark:hover {
   outline: 2px solid rgba(0, 0, 0, 0.37);
   outline-offset: 2px;
 }
 
-/* Remove sticky focus outline */
 .btn-outline-dark:focus {
-  outline: 2px solid rgba(0, 0, 0, 0.7); /* show the outline only while focused */
+  outline: 2px solid rgba(0, 0, 0, 0.7);
   outline-offset: 2px;
-  box-shadow: none !important; /* remove Bootstrap shadow */
+  box-shadow: none !important;
 }
 
-/* Remove outline after click (when mouse is released) */
 .btn-outline-dark:active {
   outline: none;
   box-shadow: none !important;
@@ -53,4 +52,78 @@ body {
   font-size: 14px;
   padding: 6px 10px;
   height: 36px;
+}
+
+/* =====================
+   ChatBot CSS
+===================== */
+.chatbot-container {
+  width: 300px;
+  max-height: 400px;
+  position: fixed;
+  top: 80px; /* below header */
+  right: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background: #1976d2;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #f5f5f5;
+}
+
+.chatbot-message {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+.chatbot-message.user {
+  background: #00c853;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chatbot-message.bot {
+  background: #e0e0e0;
+  color: #111;
+  align-self: flex-start;
+}
+
+.chatbot-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.chatbot-input button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
 }
