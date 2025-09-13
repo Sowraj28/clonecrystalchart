@@ -92,7 +92,7 @@ export default function Dashboard() {
       >
         <h2 style={{ color: "#b98e02ff", margin: 0 }}>
           <strong style={{ color: "#b98e02ff" }}>H</strong>ello{" "}
-          <strong style={{ color: "#b98e02ff" }}>{user}</strong>
+          <strong style={{ color: "#b98e02ff" }}>{user}!</strong>
         </h2>
         <button
           className="favorites-page-btn"
