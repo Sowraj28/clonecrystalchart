@@ -5,6 +5,7 @@ from .views import FavoriteCoinListCreateView, FavoriteCoinToggleView
 from .views import PortfolioCoins, PortfolioPrices
 from .views import DashboardCoins
 
+
 from . import views
 urlpatterns = [
     path('register/',UserViews.RegisterView.as_view(),name='register'),
@@ -18,5 +19,7 @@ urlpatterns = [
     path("portfolio/coins/", PortfolioCoins.as_view(), name="portfolio-coins"),
     path("portfolio/prices/", PortfolioPrices.as_view(), name="portfolio-prices"),
     path("dashboard/coins/", DashboardCoins.as_view(), name="dashboard-coins"),
+    path("chatbot/", views.chatbot_response, name="chatbot"),
+    
 
 ]
