@@ -63,11 +63,10 @@ const Login = () => {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   style={{
-                    justifyContent:'center',
+                    justifyContent: "center",
                     fontSize: "14px",
                     padding: "6px 10px",
                     height: "36px",
-                    
                   }}
                 />
               </div>
@@ -95,7 +94,7 @@ const Login = () => {
                 <button
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto"
-                  style={{ backgroundColor: "rgba(148, 234, 252, 1)" }}
+                  style={{ backgroundColor: "rgba(250, 246, 48, 1)" }}
                   disabled
                 >
                   <FontAwesomeIcon icon={faSpinner} spin /> Logging In...
@@ -104,18 +103,18 @@ const Login = () => {
                 <button
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto"
-                  style={{ backgroundColor: "rgba(148, 234, 252, 1)" }}
+                  style={{ backgroundColor: "rgba(250, 246, 48, 1)" }}
                 >
                   Login
                 </button>
               )}
               {/* Sign Up link */}
               <div className="text-center mt-3">
-                <span style={{ color: "#fff" }}>
+                <span style={{ color: "#000000ff" }}>
                   Don't have an account?{" "}
                   <Link
                     to="/register"
-                    style={{ color: "#0e0e14ff", textDecoration: "none" }}
+                    style={{ color: "#0000fdff", textDecoration: "none" }}
                   >
                     Sign Up
                   </Link>

@@ -90,9 +90,9 @@ export default function Dashboard() {
         className="dashboard-header"
         style={{ justifyContent: "space-between" }}
       >
-        <h2 style={{ color: "#b98e02ff", margin: 0 }}>
-          <strong style={{ color: "#b98e02ff" }}>H</strong>ello{" "}
-          <strong style={{ color: "#b98e02ff" }}>{user}!</strong>
+        <h2 style={{ color: "#000000ff", margin: 0 }}>
+          <strong style={{ color: "#000000ff" }}>H</strong>ello{" "}
+          <strong style={{ color: "#000000ff" }}>{user}!</strong>
         </h2>
         <button
           className="favorites-page-btn"

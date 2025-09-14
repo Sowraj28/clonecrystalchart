@@ -30,7 +30,7 @@ const Header = () => {
         className="navbar navbar-expand-md navbar-light"
         style={{
           background:
-            "linear-gradient(90deg, rgb(125, 238, 244) 0%, rgb(78, 209, 238) 50%, rgba(150,120,250,1) 100%)",
+            "linear-gradient(90deg, rgba(203, 254, 245, 0.95) 20%, rgba(255, 255, 255, 0.95)  30%, rgba(203, 254, 245, 0.95) 100%)",
         }}
       >
         <Link to="/" className="navbar-brand fs-3 fw-bold text-dark">

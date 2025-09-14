@@ -119,18 +119,18 @@ const Register = () => {
                   type="submit"
                   className="btn btn-outline-dark d-block mx-auto "
                   style={{
-                    backgroundColor: " rgba(148, 234, 252, 1) ",
+                    backgroundColor: " rgba(250, 246, 48, 1) ",
                   }}
                 >
                   Sign Up
                 </button>
               )}
               <div className="text-center mt-3">
-                <span style={{ color: "#fff" }}>
+                <span style={{ color: "#000000ff" }}>
                   Do you have an account?{" "}
                   <Link
                     to="/login"
-                    style={{ color: "#0e0e14ff", textDecoration: "none" }}
+                    style={{ color: "#0000fdff", textDecoration: "none" }}
                   >
                     Login
                   </Link>
