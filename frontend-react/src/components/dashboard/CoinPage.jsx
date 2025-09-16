@@ -25,7 +25,7 @@ export default function CoinPage() {
         // --- Single API call to your Django proxy ---
         // This call will now return both coin and trending data.
         const res = await axios.get(
-          `http://localhost:8000/api/v1/api/coins/${id}/`
+          `${import.meta.env.VITE_API_URL}/api/v1/api/coins/${id}/`
         );
 
         // Use the data returned from your proxy

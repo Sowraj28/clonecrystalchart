@@ -45,7 +45,9 @@ export default function ChatBot({ onClose }) {
   useEffect(() => {
     Promise.all(
       popularCoins.map((coin) =>
-        fetch(`http://localhost:8000/api/v1/coins/${coin}/`).catch((err) => {
+        fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/api/coins/${coin}/`
+        ).catch((err) => {
           console.error(`Failed to fetch ${coin}`, err);
         })
       )
@@ -65,11 +67,14 @@ export default function ChatBot({ onClose }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/api/v1/chatbot/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      });
+      const res = await fetch(
+        import.meta.env.VITE_API_URL + "/api/v1/chatbot/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input }),
+        }
+      );
 
       const data = await res.json();
       const botResponse = data.response || data.reply;

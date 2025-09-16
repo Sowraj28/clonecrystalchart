@@ -90,7 +90,7 @@ export default function Dashboard() {
         className="dashboard-header"
         style={{ justifyContent: "space-between" }}
       >
-        <h2 style={{ color: "#000000ff", margin: 0 }}>
+        <h2 style={{ color: "#000000ff", margin: "5px" }}>
           <strong style={{ color: "#000000ff" }}>H</strong>ello{" "}
           <strong style={{ color: "#000000ff" }}>{user}!</strong>
         </h2>

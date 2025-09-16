@@ -25,7 +25,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/v1/token/",
+        import.meta.env.VITE_API_URL + "/api/v1/token/",
         userData
       );
       localStorage.setItem("accessToken", response.data.access);
