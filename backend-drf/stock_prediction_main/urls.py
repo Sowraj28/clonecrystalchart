@@ -16,9 +16,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, redirect # Add redirect
 
 urlpatterns = [
-    path('admin/', admin.site.urls),   # This enables the admin panel
-    path('api/v1/', include('api.urls')),  # Your API routes
+    path('admin/', admin.site.urls),
+    path('api/v1/', include('api.urls')),
+    path('', lambda request: redirect('/api/v1/', permanent=True)), # New line for redirection
 ]
