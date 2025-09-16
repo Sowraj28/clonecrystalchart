@@ -1,20 +1,18 @@
 from pathlib import Path
-from decouple import config
 from datetime import timedelta
-from corsheaders.defaults import default_headers
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
+# ---------------- Base ---------------- #
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = []
+# ---------------- Security ---------------- #
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'fallback-secret-key')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+
+
+# ---------------- Installed Apps ---------------- #
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,12 +27,14 @@ INSTALLED_APPS = [
     'api',
 ]
 
+# ---------------- Middleware ---------------- #
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # serve static files
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # <-- keep this high
+    'corsheaders.middleware.CorsMiddleware',       # must be high
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',  # still enabled globally
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -42,6 +42,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'stock_prediction_main.urls'
 
+# ---------------- Templates ---------------- #
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -59,6 +60,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'stock_prediction_main.wsgi.application'
 
+# ---------------- Database ---------------- #
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -66,6 +68,7 @@ DATABASES = {
     }
 }
 
+# ---------------- Password Validators ---------------- #
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -73,27 +76,42 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# ---------------- Localization ---------------- #
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-STATIC_URL = 'static/'
+
+# ---------------- Static Files ---------------- #
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ---------------- CORS & CSRF ---------------- #
+from corsheaders.defaults import default_headers
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://your-frontend.netlify.app",  # replace with your actual Netlify domain
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://your-frontend.netlify.app",
+    "https://crystal-chart.onrender.com",
 ]
 
-CORS_ALLOW_HEADERS = default_headers + (
-    'Authorization',
-)
+CORS_ALLOW_HEADERS = default_headers + ('Authorization',)
 
 # ---------------- DRF + JWT ---------------- #
 REST_FRAMEWORK = {
