@@ -101,7 +101,7 @@ from corsheaders.defaults import default_headers
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "https://your-frontend.netlify.app",  # replace with your actual Netlify domain
+    "https://crystalchart.netlify.app",  # replace with your actual Netlify domain
 ]
 
 CSRF_TRUSTED_ORIGINS = [
