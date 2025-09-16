@@ -326,3 +326,12 @@ def chatbot_response(request):
 
     except Exception as e:
         return JsonResponse({"reply": f"Error: {str(e)}"}, status=500)
+    
+    
+    
+    
+    
+from django.http import JsonResponse
+
+def api_root(request):
+    return JsonResponse({"message": "Welcome to the API!"})
